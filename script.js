@@ -41,6 +41,9 @@ logo.addEventListener("click", (e) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   // 이동 후 lenis 다시 활성화
   lenis.start();
+  gnbBar.classList.remove("active");
+  gnb.classList.remove("active");
+  logo.classList.remove("active");
 });
 
 // 탑버튼 클릭 이벤트
