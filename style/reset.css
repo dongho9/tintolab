@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+}
+body ul,
+body dl,
+body li {
+  list-style: none;
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}

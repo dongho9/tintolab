@@ -1,0 +1,527 @@
+// 초기화
+@import "./style/reset.scss";
+// 변수
+@import "./style/variables.scss";
+
+// 버튼
+@mixin button {
+  background: map-get($map: $color, $key: button);
+  border-radius: 60px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: map-get($map: $color, $key: gray);
+    color: map-get($map: $color, $key: white);
+  }
+}
+
+// 헤더영역
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: map-get($map: $color, $key: white);
+  padding: 50px 3%;
+  text-transform: uppercase;
+  z-index: 10;
+  transition: all 0.3s;
+
+  // 로고
+  h1 {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: 0;
+    z-index: 2;
+    &.active {
+      color: map-get($map: $color, $key: black);
+    }
+  }
+
+  // 메뉴 영역
+  #gnb {
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  // 햄버거 메뉴 버튼
+  #gnbBar {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 16px;
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    li {
+      width: 100%;
+      height: 2px;
+      background: map-get($map: $color, $key: white);
+      position: absolute;
+      border-radius: 1px;
+      transition: all 0.3s;
+      &:nth-child(2) {
+        top: 50%;
+      }
+      &:last-child {
+        top: 100%;
+      }
+    }
+    &.active {
+      li {
+        background: map-get($map: $color, $key: black);
+        &:first-child {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          top: 0%;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  // 가상클래스
+  &.active {
+    top: -300px;
+  }
+}
+
+// 메인영역
+main {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  // 공통 섹션 스타일
+  section {
+    min-height: 100vh;
+    position: relative;
+    text-transform: uppercase;
+    // 공통 이미지 스타일
+    img {
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      display: block;
+      &:hover {
+        filter: brightness(70%);
+      }
+    }
+  }
+
+  // 메인 섹션
+  #mainSection {
+    background: map-get($map: $color, $key: blue);
+    color: map-get($map: $color, $key: white);
+    display: flex;
+    align-items: center;
+    padding-bottom: 240px;
+    div {
+      z-index: 1;
+      // 3D 이미지
+      img {
+        display: block;
+        cursor: auto;
+        &:hover {
+          filter: none;
+        }
+      }
+    }
+    h2 {
+      font-size: 9.375vw;
+      position: absolute;
+      left: 3%;
+      bottom: 50px;
+    }
+  }
+
+  // 어바웃 섹션
+  #aboutSection {
+    h2 {
+      display: none;
+    }
+    padding: 80px 3%;
+    background: map-get($map: $color, $key: black);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    // 플렉스 세로 영역
+    #aboutTop {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      div {
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          min-height: 460px;
+        }
+      }
+    }
+
+    // 플렉스 가로 영역
+    #aboutBottom {
+      display: flex;
+      gap: 16px;
+      color: map-get($map: $color, $key: white);
+      text-transform: uppercase;
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+
+  // 프로젝트 섹션
+  #projectSection {
+    h2 {
+      display: none;
+    }
+    background: map-get($map: $color, $key: white);
+
+    // 전체 차지 영역
+    .projectVer01 {
+      width: 100%;
+      img {
+        width: 100%;
+        min-height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    // 플렉스 레이아웃 영역
+    #projectVer02 {
+      padding: 80px 3%;
+      display: flex;
+      flex-direction: column;
+      gap: 150px;
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+        position: relative;
+
+        // 좌측 버튼 영역
+        .projectLeft {
+          text-transform: uppercase;
+          width: 100%;
+          max-width: 452px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          & > div {
+            &:first-child {
+              display: flex;
+              flex-direction: column;
+              gap: 21px;
+              p {
+                font-size: 3rem;
+                font-weight: bold;
+                br {
+                  display: none;
+                }
+              }
+              span {
+                font-size: 2.4rem;
+                font-weight: lighter;
+                text-transform: capitalize;
+              }
+            }
+            &:last-child {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              div {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                i {
+                  font-size: 2rem;
+                }
+                span {
+                  font-size: 2.4rem;
+                }
+              }
+            }
+          }
+          .button {
+            @include button;
+            padding: 30px 54px;
+          }
+        }
+
+        // 우측 이미지 영역
+        .projectRight {
+          display: flex;
+          max-width: 1248px;
+          flex-direction: column;
+          gap: 40px;
+          div {
+            border-radius: 30px;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              max-height: 640px;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 컨택 푸터 섹션
+  #contactSection {
+    background: map-get($map: $color, $key: blue);
+    color: map-get($map: $color, $key: white);
+    text-transform: uppercase;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 90px 3%;
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+
+      // 소셜 영역
+      nav {
+        margin-right: 300px;
+      }
+
+      // 주소 영역
+      address {
+        font-style: normal;
+      }
+
+      h2 {
+        font-size: 9.375vw;
+        position: absolute;
+        bottom: 0;
+      }
+      dl {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 2.4rem;
+        dt {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
+
+// 탑 버튼
+#topBtn {
+  position: fixed;
+  right: 3%;
+  bottom: -5%;
+  width: 42px;
+  height: 42px;
+  background-color: map-get($map: $color, $key: white);
+  color: map-get($map: $color, $key: black);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: difference;
+  transition: all 0.3s;
+  z-index: 9;
+  &.active {
+    bottom: 6%;
+  }
+}
+
+// 반응형
+@media screen and (max-width: 768px) {
+  // 헤더영역
+  header {
+    padding: 30px 3%;
+    h1 {
+      transition: all 0.3s;
+      width: auto;
+      opacity: 1;
+      visibility: visible;
+      cursor: pointer;
+      pointer-events: fill;
+    }
+    #gnb {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      left: 0;
+      top: 0;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: map-get($map: $color, $key: white);
+      color: map-get($map: $color, $key: black);
+      padding: 250px 3%;
+      ul {
+        flex-direction: column;
+        gap: 40px;
+        height: 100%;
+        li {
+          font-size: 3rem;
+        }
+      }
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    #gnbBar {
+      transition: all 0.3s;
+      opacity: 1;
+      visibility: visible;
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+
+  // 메인영역
+  main {
+    // 공통 섹션 스타일
+    section {
+      img {
+        &:hover {
+          filter: none;
+        }
+      }
+    }
+
+    // 어바웃 섹션
+    #aboutSection {
+      padding: 80px 3%;
+      #aboutBottom {
+        flex-direction: column;
+        div {
+          display: flex;
+          flex-direction: column;
+          img {
+            max-height: 195px;
+          }
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    // 프로젝트 섹션
+    #projectSection {
+      #projectVer02 {
+        padding: 80px 3%;
+        gap: 80px;
+        & > div {
+          flex-direction: column;
+          gap: 40px;
+          .projectLeft {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 100%;
+            height: 100%;
+            gap: 20px;
+            & > div {
+              &:first-child {
+                padding: 30px 30px;
+                gap: 14px;
+                p {
+                  font-size: 2.8rem;
+                  br {
+                    display: block;
+                  }
+                }
+                span {
+                  font-size: 1.6rem;
+                }
+              }
+              &:last-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                div {
+                  display: flex;
+                  align-items: center;
+                  gap: 14px;
+                  cursor: pointer;
+                  i {
+                    font-size: 2rem;
+                  }
+                  span {
+                    display: none;
+                  }
+                }
+              }
+            }
+            .button {
+              width: 100%;
+              height: 100%;
+              padding: 0px 30px;
+              border-radius: 30px;
+              &:hover {
+                background: map-get($map: $color, $key: button);
+                color: map-get($map: $color, $key: black);
+              }
+            }
+          }
+          .projectRight {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            div {
+              border-radius: 20px;
+              overflow: hidden;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                max-height: 640px;
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 컨택 푸터 섹션
+    #contactSection {
+      footer {
+        gap: 40px;
+      }
+    }
+  }
+}
