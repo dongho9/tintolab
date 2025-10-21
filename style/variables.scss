@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Special+Gothic:wght@400..700&display=swap");
+
 $color: (
   white: #fff,
   black: #000,
   blue: #00f,
   button: #f1f2f7,
   gray: #333,
+);
+
+$font: (
+  anton: "Anton",
+  gothic: "Special Gothic",
 );

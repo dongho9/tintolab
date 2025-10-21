@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Special+Gothic:wght@400..700&display=swap");
 html {
   font-size: 62.5%;
 }
@@ -42,6 +43,7 @@ header {
   z-index: 10;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  font-family: "Special Gothic";
 }
 header h1 {
   opacity: 0;
@@ -49,6 +51,7 @@ header h1 {
   pointer-events: none;
   width: 0;
   z-index: 2;
+  font-family: "Anton";
 }
 header h1.active {
   color: #000;
@@ -161,10 +164,11 @@ main #mainSection div img:hover {
           filter: none;
 }
 main #mainSection h2 {
-  font-size: 9.375vw;
+  font-size: 12.3vw;
   position: absolute;
   left: 3%;
   bottom: 50px;
+  font-family: "Anton";
 }
 main #aboutSection {
   padding: 80px 3%;
@@ -219,6 +223,7 @@ main #aboutSection #aboutBottom div {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 20px;
+  font-family: "Special Gothic";
 }
 main #aboutSection #aboutBottom div img {
   width: 100%;
@@ -331,6 +336,7 @@ main #projectSection #projectVer02 > div .projectLeft .button {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
+  font-family: "Special Gothic";
   padding: 30px 54px;
 }
 main #projectSection #projectVer02 > div .projectLeft .button:hover {
@@ -379,6 +385,7 @@ main #contactSection footer {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  font-family: "Special Gothic";
 }
 main #contactSection footer nav {
   margin-right: 300px;
@@ -390,6 +397,7 @@ main #contactSection footer h2 {
   font-size: 9.375vw;
   position: absolute;
   bottom: 0;
+  font-family: "Anton";
 }
 main #contactSection footer dl {
   display: -webkit-box;
@@ -474,6 +482,7 @@ main #contactSection footer dl dt {
   }
   header #gnb ul li {
     font-size: 3rem;
+    font-weight: bold;
   }
   header #gnb.active {
     opacity: 1;
