@@ -308,7 +308,7 @@ main {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 90px 3%;
+    padding: 0px 3%;
     footer {
       display: flex;
       flex-wrap: wrap;
@@ -322,16 +322,16 @@ main {
       address {
         font-style: normal;
       }
-
       h2 {
-        font-size: 9.375vw;
         position: absolute;
+        font-size: 9.375vw;
         bottom: 0;
         font-family: map-get($map: $font, $key: anton);
       }
       dl {
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
         gap: 16px;
         font-size: 2.4rem;
         dt {
@@ -346,7 +346,7 @@ main {
 #topBtn {
   position: fixed;
   right: 3%;
-  bottom: -5%;
+  bottom: -10%;
   width: 42px;
   height: 42px;
   background-color: map-get($map: $color, $key: white);
@@ -527,6 +527,9 @@ main {
     #contactSection {
       footer {
         gap: 40px;
+        dl {
+          font-size: 2rem;
+        }
       }
     }
   }
