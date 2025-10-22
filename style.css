@@ -80,6 +80,7 @@ header #gnbBar {
   opacity: 0;
   visibility: hidden;
   position: relative;
+  display: none;
 }
 header #gnbBar li {
   width: 100%;
@@ -498,6 +499,7 @@ main #contactSection footer dl dt {
     visibility: visible;
     cursor: pointer;
     z-index: 2;
+    display: block;
   }
   main section img:hover {
     -webkit-filter: none;
